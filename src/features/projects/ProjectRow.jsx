@@ -6,6 +6,7 @@ import { HiOutlineTrash } from "react-icons/hi";
 import { TbPencilMinus } from "react-icons/tb";
 import Modal from "../../ui/Modal";
 import { useState } from "react";
+import ConfirmDelete from "../../ui/ConfirmDelete";
 
 function ProjectRow({ project, index }) {
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -59,7 +60,12 @@ function ProjectRow({ project, index }) {
               open={isDeleteOpen}
               onClose={() => setIsDeleteOpen(false)}
             >
-              This is Modal ...
+              <ConfirmDelete
+                resourceName={project.title}
+                onClose={() => setIsDeleteOpen(false)}
+                onConfirm={() => {}}
+                disabled={false}
+              />
             </Modal>
           </>
         </div>
